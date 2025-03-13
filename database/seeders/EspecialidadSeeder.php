@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use App\Models\Especialidad;
 class EspecialidadSeeder extends Seeder
 {
     /**
@@ -12,6 +12,6 @@ class EspecialidadSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Especialidad::factory()->count(10)->create();
     }
 }

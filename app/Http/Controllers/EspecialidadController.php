@@ -15,7 +15,8 @@ class EspecialidadController extends Controller
     {
         //
         $datos=Especialidad::all();
-        dd($datos);
+//        echo 'texto';
+//        dd($datos);
         return Inertia::render('Home',[
            'registros'=>$datos
         ]);

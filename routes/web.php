@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
+use App\Http\Controllers\EspecialidadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +15,11 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+Route::get('/re', function () {
 
     return Inertia::render('Home');
 //    return view('welcome');
+
 });
+
+Route::get('/',[EspecialidadController::class,'index'])->name('home');

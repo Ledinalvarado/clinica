@@ -17,7 +17,8 @@ class EspecialidadFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => $this->faker->word(), // Nombre aleatorio
+            'descripcion' => $this->faker->sentence(10), // Descripción aleatoria
         ];
     }
 }
