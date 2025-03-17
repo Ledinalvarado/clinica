@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Medicos;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class MedicosController extends Controller
 {
@@ -13,6 +14,9 @@ class MedicosController extends Controller
     public function index()
     {
         //
+
+        echo 'testing';
+        return Inertia::render('Medicos/Index',[]);
     }
 
     /**

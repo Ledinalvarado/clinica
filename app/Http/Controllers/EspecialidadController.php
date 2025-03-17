@@ -14,11 +14,16 @@ class EspecialidadController extends Controller
     public function index()
     {
         //
+        //$datos=Especialidad::all();
         $datos=Especialidad::all();
+        $registros_nuevos=Especialidad::withTrashed();
+        //dd($datos);
+
 //        echo 'texto';
 //        dd($datos);
         return Inertia::render('Home',[
-           'registros'=>$datos
+           'registros'=>$datos,
+            'registros_nuevos'=>$registros_nuevos
         ]);
     }
 
@@ -68,5 +73,9 @@ class EspecialidadController extends Controller
     public function destroy(Especialidad $especialidad)
     {
         //
+    }
+
+    public function actualizar_server(Especialidad $especialidad){
+
     }
 }

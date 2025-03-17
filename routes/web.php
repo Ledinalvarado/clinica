@@ -4,6 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\EspecialidadController;
+use App\Http\Controllers\MedicosController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +24,8 @@ Route::get('/re', function () {
 
 });
 
+
 Route::get('/',[EspecialidadController::class,'index'])->name('home');
+Route::get('/actualizar',[EspecialidadController::class,'actualizar_server'])->name('home-actualizar');
+
+Route::get('/medicos',[MedicosController::class,'index'])->name('medicos');
