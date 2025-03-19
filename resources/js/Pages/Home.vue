@@ -23,7 +23,14 @@
             </v-navigation-drawer>
 
         <v-app>
-            <h1>hello</h1>
+
+
+            <v-main>
+                <v-container>
+                    <slot />
+                </v-container>
+            </v-main>
+
             </v-app>
         </v-layout>
     </v-card>

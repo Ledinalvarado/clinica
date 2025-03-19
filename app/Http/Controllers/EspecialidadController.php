@@ -16,12 +16,13 @@ class EspecialidadController extends Controller
         //
         //$datos=Especialidad::all();
         $datos=Especialidad::all();
-        $registros_nuevos=Especialidad::withTrashed();
+        $registros_nuevos=Especialidad::withoutTrashed();
         //dd($datos);
 
 //        echo 'texto';
 //        dd($datos);
-        return Inertia::render('Home',[
+//        return Inertia::render('Home',[
+        return Inertia::render('Especialidades/Index',[
            'registros'=>$datos,
             'registros_nuevos'=>$registros_nuevos
         ]);
