@@ -1,3 +1,6 @@
+<script setup>
+import { Link } from '@inertiajs/vue3'
+</script>
 <template>
     <v-card>
         <v-layout>
@@ -16,7 +19,17 @@
                 <v-divider></v-divider>
 
                 <v-list density="compact" nav>
-                    <v-list-item prepend-icon="mdi-hospital" title="Especialidades" value="myfiles"></v-list-item>
+                    <Link href="/medicos" as="div">
+                        <v-list-item prepend-icon="mdi-account-multiple" title="Usuarios" value="usuarios"></v-list-item>
+                    </Link>
+<!--                    <Link href="/medicos" method="post" as="div" >-->
+<!--                        <v-list-item prepend-icon="mdi-exit-to-app" title="Log Out" link />-->
+<!--                    </Link>-->
+                    <Link href="/especialidades" as="div">
+<!--                        <v-list-item prepend-icon="mdi-account-multiple" title="Usuarios" value="usuarios"></v-list-item>-->
+                        <v-list-item prepend-icon="mdi-hospital" title="Especialidades" value="myfiles"></v-list-item>
+
+                    </Link>
                     <v-list-item prepend-icon="mdi-account-multiple" title="Shared with me" value="shared"></v-list-item>
                     <v-list-item prepend-icon="mdi-star" title="Starred" value="starred"></v-list-item>
                 </v-list>

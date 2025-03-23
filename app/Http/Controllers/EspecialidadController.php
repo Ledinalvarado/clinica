@@ -34,6 +34,7 @@ class EspecialidadController extends Controller
     public function create()
     {
         //
+        echo 'hola desde create';
     }
 
     /**
