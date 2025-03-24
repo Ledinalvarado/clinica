@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\EspecialidadController;
+use App\Http\Controllers\MedicosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +32,19 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/especialidades',[EspecialidadController::class,'index'])->name('especialidades');
+    Route::get('/actualizar',[EspecialidadController::class,'actualizar_server'])->name('home-actualizar');
+
+    Route::get('/medicos',[MedicosController::class,'index'])->name('medicos');
+
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
 
 require __DIR__.'/auth.php';

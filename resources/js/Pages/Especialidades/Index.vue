@@ -1,8 +1,16 @@
 <script setup>
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head, Link} from '@inertiajs/vue3'
 </script>
 <template>
-    <Home>
+<!--    <Home>-->
+
+        <Head title="Especialidades" />
+
+        <AuthenticatedLayout>
+            <template #header>
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
+            </template>
 <h1>hello from index de especialidades</h1>
 
 
@@ -41,9 +49,9 @@ import {Head, Link} from '@inertiajs/vue3'
 
 
 
-    </Home>
+<!--    </Home>-->
 
-
+        </AuthenticatedLayout>
 
 </template>
 
