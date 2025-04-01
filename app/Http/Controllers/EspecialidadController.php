@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Especialidad;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 
 class EspecialidadController extends Controller
@@ -33,7 +35,8 @@ class EspecialidadController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Especialidades/Create', [
+        ]);
     }
 
     /**
@@ -41,7 +44,18 @@ class EspecialidadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+
+        ]);
+
+        $user = Especialidad::create([
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+
+        ]);
+
     }
 
     /**

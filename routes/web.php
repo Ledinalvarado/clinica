@@ -31,6 +31,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/especialidades/crear',[EspecialidadController::class,'create'])->name('create-especialidad');
     Route::get('/especialidades',[EspecialidadController::class,'index'])->name('especialidades');
     Route::get('/actualizar',[EspecialidadController::class,'actualizar_server'])->name('home-actualizar');
 
