@@ -1,6 +1,17 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import {Head, Link} from '@inertiajs/vue3'
+import {Head, Link, useForm} from '@inertiajs/vue3'
+const form = useForm({
+    nombre: '',
+    descripcion: '',
+});
+const submit = () => {
+
+    form.post(route('especialidades.store'), {
+        // onFinish: () => form.reset('nombre', 'descripcion'),
+    });
+};
+
 </script>
 
 <template>
@@ -25,13 +36,13 @@ import {Head, Link} from '@inertiajs/vue3'
 
                     <v-card-subtitle>
 
-                        <div class="d-flex justify-md-end justify-sm-center ">
-                            <Link :href="route('create-especialidad')" as="div" >
-                                <v-btn append-icon="mdi-content-save" style="background-color:#121D40;color: white ">Registrar Especialidades
-                                </v-btn>
-                            </Link>
+<!--                        <div class="d-flex justify-md-end justify-sm-center ">-->
+<!--                            <Link :href="route('create-especialidad')" as="div" >-->
+<!--                                <v-btn append-icon="mdi-content-save" style="background-color:#121D40;color: white ">Registrar Especialidades-->
+<!--                                </v-btn>-->
+<!--                            </Link>-->
 
-                        </div>
+<!--                        </div>-->
 
                     </v-card-subtitle>
                 </v-card-item>
@@ -40,16 +51,14 @@ import {Head, Link} from '@inertiajs/vue3'
 
 <!--                    <template>-->
                         <v-sheet class="mx-auto" width="300">
-                            <v-form fast-fail @submit.prevent>
+                            <v-form  @submit.prevent="submit">
                                 <v-text-field
-                                    v-model="firstName"
-                                    :rules="firstNameRules"
+                                    v-model="form.nombre"
                                     label="Nombre de Especialidad"
                                 ></v-text-field>
 
                                 <v-textarea
-                                    v-model="lastName"
-                                    :rules="lastNameRules"
+                                    v-model="form.descripcion"
                                     label="Descripcion"
                                 ></v-textarea>
 

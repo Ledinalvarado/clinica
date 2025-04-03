@@ -31,10 +31,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+//    Route::resource('/especialidades', EspecialidadController::class)->except('update');
+
     Route::get('/especialidades/crear',[EspecialidadController::class,'create'])->name('create-especialidad');
     Route::get('/especialidades',[EspecialidadController::class,'index'])->name('especialidades');
     Route::get('/actualizar',[EspecialidadController::class,'actualizar_server'])->name('home-actualizar');
-
+    Route::post('/especialidades/store',[EspecialidadController::class,'store'])->name('especialidades.store');
+//
     Route::get('/medicos',[MedicosController::class,'index'])->name('medicos');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

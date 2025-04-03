@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Especialidad;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
@@ -47,14 +48,15 @@ class EspecialidadController extends Controller
 
         $request->validate([
             'nombre' => 'required|string|max:255',
-
+            'descripcion'=> 'string|max:255',
         ]);
 
-        $user = Especialidad::create([
+        $especialidad = Especialidad::create([
             'nombre' => $request->nombre,
             'descripcion' => $request->descripcion,
 
         ]);
+
 
     }
 
